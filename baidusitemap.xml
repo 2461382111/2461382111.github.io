@@ -3,23 +3,23 @@
 
 
     
-    
-    
-    
   <url>
     <loc>http://yoursite.com/2016/09/26/hello-world/</loc>
-    <lastmod>2016-09-26T09:21:06.862Z</lastmod>
+    <lastmod>2016-09-27T09:10:28.010Z</lastmod>
     <data>
         <display>
         <title>Hello World</title>
         <pubTime>2016-09-26T01:49:06.125Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>test</tag>
+         
+        <tag>hexo</tag>
          
          
            
+             
+              <breadCrumb title="hello" url="http://yoursite.com/categories/hello/"/>
+          
         </display>
     </data>
     </url>
@@ -27,16 +27,24 @@
     
   <url>
     <loc>http://yoursite.com/2016/09/26/test/</loc>
-    <lastmod>2016-09-26T07:03:59.720Z</lastmod>
+    <lastmod>2016-09-27T09:10:24.346Z</lastmod>
     <data>
         <display>
         <title>test</title>
         <pubTime>2016-09-26T06:22:46.000Z</pubTime>
         
+        <tag>test</tag>
+         
          
            
+             
+              <breadCrumb title="test" url="http://yoursite.com/categories/test/"/>
+          
         </display>
     </data>
     </url>
 
+    
+    
+    
 </urlset>
