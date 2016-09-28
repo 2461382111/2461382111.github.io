@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  <subtitle>分享技术文章</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="2461382111.github.io/"/>
+  <updated>2016-09-27T09:10:24.346Z</updated>
+  <id>2461382111.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="2461382111.github.io/2016/09/26/test/"/>
+    <id>2461382111.github.io/2016/09/26/test/</id>
+    <published>2016-09-26T06:22:46.000Z</published>
+    <updated>2016-09-27T09:10:24.346Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<p>VC 驿站<br>WwW.CcTry.Com<br>多抽出一分钟时间学习.让你的生命更加精彩.<br>C、C++、VC++ 各种学习资源，免费教程，期待您的加入！<br>动画教程只是起到技术交流的作用.请大家不用利用此方法做非法用途.<br>由此动画造成的任何后果和动画作者及本站无关.</p>
+<a id="more"></a>
+<hr>
+<p>大家好，我是Syc                   QQ：7657318    QQ 技术交流群：84780266<br>今天给大家做的教程是：</p>
+<h2 id="Vc-打造局域网聊天室-10-—任务栏托盘功能的实现"><a href="#Vc-打造局域网聊天室-10-—任务栏托盘功能的实现" class="headerlink" title="Vc++ 打造局域网聊天室(10)—任务栏托盘功能的实现 "></a>Vc++ 打造局域网聊天室(10)—任务栏托盘功能的实现 </h2><p>1、封装 “其他功能” 按钮响应函数：<br>void CChatRoomDlg::OnBnClickedOther()<br>{<br>    CPoint pt;<br>    CRect mRect;<br>    CMenu mMenu, *pMenu = NULL;<br>    GetDlgItem(IDC_OTHER)-&gt;GetWindowRect(&amp;mRect);<br>    pt = mRect.BottomRight();<br>    pt.y = mRect.top+10;<br>    mMenu.LoadMenu(IDR_MENU1);<br>    pMenu = mMenu.GetSubMenu(0);<br>    pMenu-&gt;TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, pt.x, pt.y, this);<br>}</p>
+<p>2、任务栏托盘函数的封装：<br>BOOL CChatRoomDlg::TrayMyIcon(BOOL bAdd)<br>{<br>    BOOL bRet = FALSE;<br>    NOTIFYICONDATA tnd;<br>    tnd.cbSize = sizeof(NOTIFYICONDATA);<br>    tnd.hWnd = m_hWnd;<br>    tnd.uID = IDR_MAINFRAME;<br>    if ( bAdd == TRUE ) {<br>        tnd.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;<br>        tnd.uCallbackMessage = WM_TRAYICON_MSG;<br>        tnd.hIcon = LoadIcon(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_MAINFRAME));<br>        _tcscpy_s(tnd.szTip, sizeof(tnd.szTip), _T(“聊天室v1.0”));<br>        ShowWindow(SW_MINIMIZE);<br>        ShowWindow(SW_HIDE);<br>        bRet = Shell_NotifyIcon(NIM_ADD, &amp;tnd);<br>    }else{<br>        ShowWindow(SW_SHOWNA);<br>        SetForegroundWindow();<br>        bRet = Shell_NotifyIcon(NIM_DELETE, &amp;tnd);<br>    }<br>    return bRet;<br>}</p>
+<p>3、消息响应函数的添加：</p>
+<p>#define WM_TRAYICON_MSG (WM_USER+100)<br>ON_MESSAGE(WM_TRAYICON_MSG, OnTrayCallBackMsg)</p>
+<p>LRESULT CChatRoomDlg::OnTrayCallBackMsg(WPARAM wparam, LPARAM lparam)<br>{<br>    switch(lparam)<br>    {<br>    case WM_RBUTTONUP:<br>        {<br>            CMenu mMenu, *pMenu = NULL;<br>            CPoint pt;<br>            mMenu.LoadMenu(IDR_MENU2);<br>            pMenu = mMenu.GetSubMenu(0);<br>            GetCursorPos(&amp;pt);<br>            SetForegroundWindow();<br>            pMenu-&gt;TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, pt.x, pt.y, this);<br>            break;<br>        }<br>    case WM_LBUTTONDBLCLK:<br>        ShowWindow(SW_RESTORE);<br>        SetForegroundWindow();<br>        break;<br>    default:break;<br>    }<br>    return NULL;<br>}</p>
+<p>备注：本节课是《Vc++打造局域网聊天室》系列课程的最后一课，所有的功能也都给大家实现并讲解了，不知道大家学的怎么样！还是希望大家多实践，多写代码，以此来提高能力。</p>
+<p>本程序代码已打包给大家，大家可以参考！</p>
+<p>由于本作者能力有限，在《Vc++打造局域网聊天室》系列课程中如有错误信息，请指正！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;p&gt;VC 驿站&lt;br&gt;WwW.CcTry.Com&lt;br&gt;多抽出一分钟时间学习.让你的生命更加精彩.&lt;br&gt;C、C++、VC++ 各种学习资源，免费教程，期待您的加入！&lt;br&gt;动画教程只是起到技术交流的作用.请大家不用利用此方法做非法用途.&lt;br&gt;由此动画造成的任何后果和动画作者及本站无关.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="test" scheme="2461382111.github.io/categories/test/"/>
+    
+    
+      <category term="test" scheme="2461382111.github.io/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="2461382111.github.io/2016/09/26/hello-world/"/>
+    <id>2461382111.github.io/2016/09/26/hello-world/</id>
+    <published>2016-09-26T01:49:06.125Z</published>
+    <updated>2016-09-27T09:10:28.010Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="hello" scheme="2461382111.github.io/categories/hello/"/>
+    
+    
+      <category term="hexo" scheme="2461382111.github.io/tags/hexo/"/>
+    
+      <category term="test" scheme="2461382111.github.io/tags/test/"/>
+    
+  </entry>
+  
+</feed>
